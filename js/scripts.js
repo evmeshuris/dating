@@ -1,20 +1,18 @@
 $(document).ready(function() {
-  $("#formOne").submit(function(event) {
-    event.preventDefault();
-    const person1Input = $("input#person1").val();
-    const person2Input = $("input#person2").val();
-    const animalInput= $("input#animal").val();
-    const exclamationInput = $("input#exclamation").val();
-    const verbInput = $("input#verb").val();
-    const nounInput = $("input#noun").val();
+    $("form#celebMatch").submit(function(event) {
+      event.preventDefault();
+      const age = $("input#age").val();
+      parseInt(age);
+      const gender = $("select#gender").val();
 
-    $(".person1").text(person1Input);
-    $(".person2").text(person2Input);
-    $(".animal").text(animalInput);
-    $(".exclamation").text(exclamationInput);
-    $(".verb").text(verbInput);
-    $(".noun").text(nounInput);
-
-    $("#story").show();
+      if (age > 21 && gender === "male") {
+      $('#matchMale').show();
+      }
+      else if (age > 21 && gender === "female") {
+      $('#matchFemale').show();
+      }
+      else {
+        alert("You are too young to date");
+      }
   });
 });
